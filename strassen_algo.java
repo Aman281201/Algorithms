@@ -100,7 +100,23 @@ public class strassen_algo {
             q1 = add_sub_ar(add_sub_ar(p4,p2,n/2,'-'),add_sub_ar(p5,p6,n/2,'+'),n/2,'+');
             q2 = add_sub_ar(p1,p2,n/2,'+');
             q3 = add_sub_ar(p3,p4,n/2,'+');
-            q4 = add_sub_ar(add_sub_ar(p1,p7,n/2,),add_sub_ar(),n/2,'+')
+            q4 = add_sub_ar(add_sub_ar(p1,p7,n/2,'-'),add_sub_ar(p5,p3,n/2,'-'),n/2,'+');
+
+            for(int i = 0;i < n; i++)
+                for(int j = 0;j < n;j++)
+                {
+                    if(i<n/2 && j < n/2)
+                        fin[i][j] = q1[i][j];
+
+                    else if(i<n/2 && j>= n/2)
+                        fin[i][j] = q2[i][j-n/2];
+
+                    else if(i>=n/2 && j<n/2)
+                        fin[i][j] = q3[i-n/2][j] ;
+                    else
+                        fin[i][j] = q4[i-n/2][j-n/2] ;
+                }
+
         }
         else
         {
