@@ -2,6 +2,8 @@
 //#include <string>
 using namespace std;
 
+// for implementing tree
+
 struct node {
     int data;
     struct node* left;
@@ -80,7 +82,7 @@ node *n[s];
 for(int i = 0; i < s ; i++)
     n[i]->data = count[i];
 
-// creating a tree
+// creating a tree using optimum mergesort algorithm
 
 int y = sizeof(count)/sizeof(int);
 int a = 0;
@@ -103,7 +105,9 @@ int a = 0;
 
     }
 
-    // creating huffmann codes
+    // creating huffmann codes 
+    // adding 0 if path taken is left and 1 if path taken is right
+
     string codes[5];
     set_codes(root, "", codes, count);
 
